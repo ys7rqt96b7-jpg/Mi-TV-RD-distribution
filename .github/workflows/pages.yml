@@ -1,0 +1,44 @@
+name: Publish downloads
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: public-pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish matching public APK release
+        if: hashFiles('config/update.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION=$(python3 -c 'import json; print(json.load(open("config/update.json"))["version_name"])')
+          TAG="v$VERSION"
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "Canales RD $VERSION" --notes "Instale el APK sobre la versión anterior para conservar sus ajustes."
+          gh release upload "$TAG" downloads/Canales-RD.apk --clobber
+      - uses: actions/configure-pages@v5
+      - name: Prepare public site
+        run: |
+          mkdir -p site
+          cp config/channels.json site/channels.json
+          if test -f config/status.json; then cp config/status.json site/status.json; fi
+          if test -f config/update.json; then cp config/update.json site/update.json; fi
+          if test -d downloads; then cp -r downloads site/downloads; fi
+          cp index.html site/index.html
+          touch site/.nojekyll
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - uses: actions/deploy-pages@v4
+        id: deployment

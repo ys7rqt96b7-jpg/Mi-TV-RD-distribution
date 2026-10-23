@@ -1,0 +1,1575 @@
+{
+  "schema": 1,
+  "updated": "2026-10-23T16:00:00Z",
+  "notes": "Seed config for Canales RD. 'verified' records a probe from a US datacenter on 2026-10-23; 'blocked'/'untested' sources may work from a Dominican or residential connection. Re-run tools/check_sources.py from the parents' network before release.",
+  "defaults": {
+    "user_agent": "CanalesRD/1.0 (Linux; Android; Fire TV) ExoPlayerLib/1.9.4",
+    "user_agent_notes": "Send this app UA on every request of a source without its own headers. Never let OkHttp send its default 'okhttp/x' UA and never default to a desktop-browser UA: on 2026-10-23 Wind TV served its geo-block slate to both but real video to UAs containing ExoPlayerLib, Dalvik or an Android Chrome string. Sources that need something else carry it in their own headers (the Telemicro group needs a browser UA plus Referer; a few iptv-org entries keep the UA iptv-org lists). page_regex sources send page_headers only when fetching the page.",
+    "resolve_timeout_ms": 5000,
+    "preflight_timeout_ms": 4000,
+    "first_frame_timeout_ms": 10000
+  },
+  "slate_patterns": [
+    "regionblock",
+    "geoblock",
+    "georestrict",
+    "geo_block",
+    "notavailable"
+  ],
+  "catalogs": {
+    "tvabierta": {
+      "url": "https://tvabierta.net/api/tv/channels.json",
+      "format": "tvabierta_v1",
+      "ttl_min": 30,
+      "notes": "JSON {channels:[{number, name, category, stream, logo}]}; match category 'RD' + number."
+    },
+    "iptvorg_do": {
+      "url": "https://iptv-org.github.io/iptv/countries/do.m3u",
+      "format": "m3u",
+      "ttl_min": 360,
+      "notes": "Match tvg-id; honour #EXTVLCOPT http-referrer and http-user-agent lines."
+    }
+  },
+  "epg": {
+    "xmltv": "https://epgshare01.online/epgshare01/epg_ripper_DO1.xml.gz",
+    "notes": "Covers 9 of the 11 broadcast channels (not RTVD, VTV). Channel ids look like 'Canal.Telesistema.11.(República.Dominicana).do'."
+  },
+  "device": {
+    "autostart_on_boot": true,
+    "wake_service": true,
+    "keep_awake_while_unavailable_min": 10,
+    "notes": "wake_service brings the app back after the Fire TV wakes from sleep (untested on hardware; set false if it misbehaves)."
+  },
+  "lidom": {
+    "season": "2026-27 regular season: 2026-10-16 to about 2026-12-22, then Round Robin and final.",
+    "schedule_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=17&leagueId=131&teamId={team_id}&startDate={from}&endDate={to}&hydrate=venue,linescore",
+    "poll_minutes": 10,
+    "window_before_min": 30,
+    "window_after_min": 30,
+    "notes": "Only the home team broadcasts a game. A team channel plays the HOME team's feeds for that team's current game. Use status.detailedState ('In Progress', 'Final', 'Postponed'); never trust YouTube titles for dates.",
+    "teams": {
+      "672": {
+        "name": "Tigres del Licey",
+        "home_feeds": [
+          {
+            "id": "lic-yt",
+            "kind": "youtube_live",
+            "channel_id": "UCodG7MOVMjh3lpV47EUTnMA",
+            "handle": "@TigresDelLicey1",
+            "priority": 10,
+            "tier": "official"
+          },
+          {
+            "id": "lic-d15",
+            "kind": "channel_ref",
+            "channel": "digital15",
+            "priority": 20,
+            "tier": "official"
+          }
+        ],
+        "radio": [],
+        "radio_todo": "Independencia 93.3 FM (Telemicro radio; direct stream URL not found yet)."
+      },
+      "671": {
+        "name": "Leones del Escogido",
+        "home_feeds": [
+          {
+            "id": "esc-yt",
+            "kind": "youtube_live",
+            "channel_id": "UCF8EeDFLnGcD5-SRFS4Eyiw",
+            "handle": "@abriendosports",
+            "priority": 10,
+            "tier": "official"
+          },
+          {
+            "id": "esc-d15",
+            "kind": "channel_ref",
+            "channel": "digital15",
+            "priority": 20,
+            "tier": "official"
+          }
+        ],
+        "radio": [
+          {
+            "id": "esc-radio-kebuena",
+            "kind": "audio",
+            "url": "https://radio.telemicro.com.do/kebuenasantiago",
+            "priority": 90,
+            "notes": "Ke Buena Santiago 105.5 (192 kbps MP3). Confirm it carries the Escogido game, not Licey's.",
+            "tier": "official"
+          }
+        ]
+      },
+      "667": {
+        "name": "Águilas Cibaeñas",
+        "home_feeds": [
+          {
+            "id": "agu-yt",
+            "kind": "youtube_live",
+            "channel_id": "UC_l6h1_eJl7yJ1aagWximmA",
+            "handle": "@ÁguilasCibaeñasoficial",
+            "priority": 10,
+            "tier": "official"
+          },
+          {
+            "id": "agu-cdnd",
+            "kind": "channel_ref",
+            "channel": "cdndeportes36",
+            "priority": 20,
+            "tier": "official"
+          },
+          {
+            "id": "agu-tu29",
+            "kind": "channel_ref",
+            "channel": "teleuniverso29",
+            "priority": 25,
+            "tier": "official"
+          }
+        ],
+        "radio": [
+          {
+            "id": "agu-radio-cdn",
+            "kind": "audio",
+            "url": "https://play.cdnradio.com.do/cdnlive",
+            "priority": 90,
+            "notes": "CDN Radio 92.5 FM (56 kbps MP3), the Águilas flagship; should also cover away games.",
+            "tier": "official"
+          }
+        ]
+      },
+      "669": {
+        "name": "Estrellas Orientales",
+        "home_feeds": [
+          {
+            "id": "est-yt",
+            "kind": "youtube_live",
+            "channel_id": "UCJs_aLb1FgCxfPHHRUy3Tdw",
+            "handle": "@EstrellasBaseballClub",
+            "priority": 10,
+            "tier": "official"
+          },
+          {
+            "id": "est-ta10",
+            "kind": "channel_ref",
+            "channel": "teleantillas10",
+            "priority": 20,
+            "tier": "official"
+          },
+          {
+            "id": "est-co39",
+            "kind": "channel_ref",
+            "channel": "coral39",
+            "priority": 25,
+            "tier": "official"
+          }
+        ],
+        "radio": [],
+        "radio_todo": "'Cadena Verde' network; stations not published."
+      },
+      "668": {
+        "name": "Toros del Este",
+        "home_feeds": [
+          {
+            "id": "tor-yt",
+            "kind": "youtube_live",
+            "channel_id": "UCw0xFqlmsik0tRXD1ES1MAw",
+            "handle": "@torosdeleste",
+            "priority": 10,
+            "tier": "official"
+          }
+        ],
+        "radio": [],
+        "notes": "Not a channel in the lineup; needed when one of the four teams plays in La Romana."
+      },
+      "670": {
+        "name": "Gigantes del Cibao",
+        "home_feeds": [
+          {
+            "id": "gig-tm8",
+            "kind": "channel_ref",
+            "channel": "telemedios8",
+            "priority": 20,
+            "tier": "official"
+          },
+          {
+            "id": "gig-tva",
+            "kind": "hls",
+            "url": "https://hls.tvabierta.net/hls/gigantescibao.m3u8",
+            "priority": 30,
+            "notes": "Listed by tvabierta; 404 outside game time.",
+            "tier": "aggregator"
+          }
+        ],
+        "radio": [],
+        "notes": "Not a channel in the lineup; YouTube channel not found. Needed for games in San Francisco de Macorís."
+      }
+    }
+  },
+  "channels": [
+    {
+      "id": "rtvd4",
+      "number": 4,
+      "name": "RTVD",
+      "group": "nacional",
+      "logo": "https://i.imgur.com/3AqCAji.png",
+      "epg": {
+        "iptvorg": "Canal4RD.do"
+      },
+      "sources": [
+        {
+          "id": "rtvd4-official",
+          "kind": "hls",
+          "tier": "official",
+          "priority": 10,
+          "url": "https://cdn.protvradiostream.com/canal4rd-1/ngrp:canal4rd-1_all/playlist.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "1080p/720p/576p/360p ABR. Embedded by rtvd.gob.do and rtvdclic.com. Playlists are gzip-compressed even when not requested."
+          }
+        },
+        {
+          "id": "rtvd4-youtube",
+          "kind": "youtube_live",
+          "tier": "official",
+          "priority": 20,
+          "channel_id": "UCv51KVxpI4X2A3UGCdOMt6w",
+          "handle": "@rtvd4",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "Live '#EnVivo' (8Qoqu8agfI4) at 15:24 and 15:33 UTC, not live at 16:02 UTC: intermittent, not 24/7."
+          }
+        },
+        {
+          "id": "rtvd4-tva",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 30,
+          "url": "https://hls.tvabierta.net/hls/004.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "640x360"
+          }
+        },
+        {
+          "id": "rtvd4-tva-memfs",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 35,
+          "url": "https://ds.tvabierta.net/memfs/9ac8ebf9-42fd-4753-9b49-f79416d87a5a.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "640x360; variant URLs carry a ?session= token"
+          }
+        },
+        {
+          "id": "rtvd4-tva-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 50,
+          "catalog": "tvabierta",
+          "match": {
+            "number": 4
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "rtvd4-iptvorg-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 60,
+          "catalog": "iptvorg_do",
+          "match": {
+            "tvg_id": "Canal4RD.do"
+          },
+          "origin": "manual"
+        }
+      ]
+    },
+    {
+      "id": "telemicro5",
+      "number": 5,
+      "name": "Telemicro",
+      "group": "nacional",
+      "logo": "https://i.imgur.com/WhgySAk.png",
+      "epg": {
+        "iptvorg": "Telemicro.do",
+        "gatotv": "5_de_republica_dominicana_telemicro"
+      },
+      "sources": [
+        {
+          "id": "tm5-official-live2",
+          "kind": "hls",
+          "tier": "official",
+          "priority": 10,
+          "url": "https://live2.telemicro.com.do/live/telemicrocast_1080p/playlist.m3u8",
+          "headers": {
+            "Referer": "https://telemicro.com.do/players/5tv/index_pc.php",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+          },
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "blocked",
+            "note": "Master 200 with Referer (403 without). Variant host is a raw IP on :8443 (e.g. 72.251.5.171) that reset every connection from the US; retest from the parents' network. Never embed the web player page (anti-framing script since 2026-10-17)."
+          }
+        },
+        {
+          "id": "tm5-official-live4",
+          "kind": "hls",
+          "tier": "official",
+          "priority": 12,
+          "url": "https://live4.telemicro.com.do/live/telemicrocast_1080p/playlist.m3u8",
+          "headers": {
+            "Referer": "https://telemicro.com.do/players/5tv/index_pc.php",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+          },
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "untested",
+            "note": "Alternate Cloudflare front-end of the same origin."
+          }
+        },
+        {
+          "id": "tm5-official-55",
+          "kind": "hls",
+          "tier": "official",
+          "priority": 14,
+          "url": "https://live2.telemicro.com.do/live/55/playlist.m3u8",
+          "headers": {
+            "Referer": "https://telemicro.com.do/players/5tv/index_pc.php",
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:152.0) Gecko/20100101 Firefox/152.0"
+          },
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "blocked",
+            "note": "Lower-bitrate rendition listed by iptv-org; same IP-edge behaviour."
+          }
+        },
+        {
+          "id": "tm5-tva-memfs",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 30,
+          "url": "https://ds.tvabierta.net/memfs/efab0d97-68d8-414e-8cdc-23d539b09944.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "720x404"
+          }
+        },
+        {
+          "id": "tm5-tva",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 32,
+          "url": "https://hls.tvabierta.net/hls/005.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "720x404"
+          }
+        },
+        {
+          "id": "tm5-tva-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 50,
+          "catalog": "tvabierta",
+          "match": {
+            "number": 5
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "tm5-iptvorg-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 60,
+          "catalog": "iptvorg_do",
+          "match": {
+            "tvg_id": "Telemicro.do"
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "tm5-restream-51",
+          "kind": "hls",
+          "tier": "restream",
+          "priority": 70,
+          "url": "http://51.81.93.29:8084/hls/tmicro.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "untested",
+            "note": "Listed on dominicanchannels.com; raw IP:port could not be tested from the sandbox."
+          }
+        }
+      ]
+    },
+    {
+      "id": "antena7",
+      "number": 7,
+      "name": "Antena 7",
+      "group": "nacional",
+      "logo": "https://i.imgur.com/zKWFgeQ.png",
+      "epg": {
+        "iptvorg": "Antena7.do",
+        "gatotv": "7_republica_dominicana"
+      },
+      "notes": "The old iptv-org URL (alba-do-antena7-antena7.stream.mediatiquestream.com) no longer resolves.",
+      "sources": [
+        {
+          "id": "a7-official",
+          "kind": "hls",
+          "tier": "official",
+          "priority": 10,
+          "url": "https://ddycmnicl95kp.cloudfront.net/live/1odfmwd056bc/master.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "720p/576p/360p ABR from the Radiant Media Player config on antena7.com.do/envivo-canal-7/. No headers, not geo-blocked."
+          }
+        },
+        {
+          "id": "a7-official-page",
+          "kind": "page_regex",
+          "tier": "official",
+          "priority": 15,
+          "page": "https://www.antena7.com.do/envivo-canal-7/",
+          "regex": "https:\\\\?/\\\\?/[a-z0-9]+\\.cloudfront\\.net\\\\?/live\\\\?/[a-z0-9]+\\\\?/master\\.m3u8",
+          "max_iframes": 2,
+          "unescape": true,
+          "page_headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+          },
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "Re-scrapes the live page in case the CloudFront URL changes. The URL is JSON-escaped in the page: unescape '\\/' to '/'."
+          }
+        },
+        {
+          "id": "a7-tva",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 30,
+          "url": "https://hls.tvabierta.net/hls/007.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "1280x720"
+          }
+        },
+        {
+          "id": "a7-wind-ams",
+          "kind": "hls",
+          "tier": "isp",
+          "priority": 40,
+          "url": "http://190.122.104.210:5080/LiveApp/streams/alatina.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "untested",
+            "note": "Ant Media server in Wind Telecom address space (listed on dominicanchannels.com); may be DR-only."
+          }
+        },
+        {
+          "id": "a7-tva-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 50,
+          "catalog": "tvabierta",
+          "match": {
+            "number": 7
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "a7-iptvorg-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 60,
+          "catalog": "iptvorg_do",
+          "match": {
+            "tvg_id": "Antena7.do"
+          },
+          "origin": "manual"
+        }
+      ]
+    },
+    {
+      "id": "telemedios8",
+      "number": 8,
+      "name": "Telemedios",
+      "group": "deportes",
+      "hidden": true,
+      "logo": "https://tvabierta.net/008.png",
+      "notes": "Hidden: Gigantes del Cibao renewed with Telemedios Canal 8 (lidom.com).",
+      "sources": [
+        {
+          "id": "tm8-tva-memfs",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 10,
+          "url": "https://ds.tvabierta.net/memfs/c64099fa-9b8a-4544-b0b1-40c7c0af49d2.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "848x480"
+          }
+        },
+        {
+          "id": "tm8-tva-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 50,
+          "catalog": "tvabierta",
+          "match": {
+            "number": 8
+          },
+          "origin": "manual"
+        }
+      ]
+    },
+    {
+      "id": "colorvision9",
+      "number": 9,
+      "name": "Color Visión",
+      "group": "nacional",
+      "logo": "https://tvabierta.net/009.png",
+      "epg": {
+        "iptvorg": "ColorVision.do",
+        "gatotv": "9_republica_dominicana"
+      },
+      "sources": [
+        {
+          "id": "cv9-wind",
+          "kind": "hls",
+          "tier": "isp",
+          "priority": 10,
+          "url": "https://cdn4.wind.do/streams/colorvision/colorvision_master.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "1080p/720p/360p (Wind Telecom). Served real 1080p to the app User-Agent from the US. Desktop-browser, curl and bare okhttp User-Agents get HTTP 200 with a 'Región no compatible' slate whose segment names contain 'regionblock', so keep the slate check on."
+          }
+        },
+        {
+          "id": "cv9-tva",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 20,
+          "url": "https://hls.tvabierta.net/hls/009.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "1280x720"
+          }
+        },
+        {
+          "id": "cv9-dm",
+          "kind": "dailymotion",
+          "tier": "official",
+          "priority": 25,
+          "video_id": "x7gy059",
+          "embedder": "https://colorvision.com.do/en-vivo/",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "Official Dailymotion live. Without the embedder parameter the API returns DM016. Only 320x180 was offered to the US datacenter. The CDN answered 403 to Python's HTTP client but 200 to curl with any User-Agent: verify with the app's OkHttp on the device."
+          }
+        },
+        {
+          "id": "cv9-tva-memfs",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 30,
+          "url": "https://ds.tvabierta.net/memfs/2493e646-b24d-489b-8603-0879abb93123.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "848x480"
+          }
+        },
+        {
+          "id": "cv9-tva-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 50,
+          "catalog": "tvabierta",
+          "match": {
+            "number": 9
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "cv9-iptvorg-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 60,
+          "catalog": "iptvorg_do",
+          "match": {
+            "tvg_id": "ColorVision.do"
+          },
+          "origin": "manual"
+        }
+      ]
+    },
+    {
+      "id": "teleantillas10",
+      "number": 10,
+      "name": "Teleantillas",
+      "group": "nacional",
+      "logo": "https://tvabierta.net/010.png",
+      "epg": {
+        "iptvorg": "TeleAntillas.do",
+        "gatotv": "2_de_republica_dominicana_teleantillas"
+      },
+      "notes": "Moved from canal 2 to canal 10. Carries Estrellas Orientales home games.",
+      "sources": [
+        {
+          "id": "ta10-tva",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 15,
+          "url": "https://hls.tvabierta.net/hls/010.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "544x480"
+          }
+        },
+        {
+          "id": "ta10-dc-page",
+          "kind": "page_regex",
+          "tier": "aggregator",
+          "priority": 18,
+          "page": "https://dominicanchannels.com/teleantillas-canal-10/",
+          "regex": "https://[a-z0-9.-]+\\.dmcdn\\.net/sec2\\([^)]+\\)/cloud/\\d+/x8mwmvs/[a-z]/live-\\d+\\.m3u8",
+          "max_iframes": 2,
+          "page_headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+          },
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "Tokenized Dailymotion URLs (live-480) published on the aggregator page; one of several worked. Try every match in order."
+          }
+        },
+        {
+          "id": "ta10-dm",
+          "kind": "dailymotion",
+          "tier": "official",
+          "priority": 20,
+          "video_id": "x8mwmvs",
+          "embedder": "https://teleantillas.com.do/en-vivo/",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "Official Dailymotion live 'Streaming de Teleantillas Canal 2'. Embedder required (DM016 otherwise). 320x180 offered to the US datacenter. The CDN answered 403 to Python's HTTP client but 200 to curl with any User-Agent: verify with the app's OkHttp on the device."
+          }
+        },
+        {
+          "id": "ta10-wind-ams",
+          "kind": "hls",
+          "tier": "isp",
+          "priority": 30,
+          "url": "http://190.122.104.210:5080/LiveApp/streams/C6ngUWmvwMhliYPN3668193473821155.m3u8",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36"
+          },
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "untested",
+            "note": "Ant Media server in Wind Telecom address space (iptv-org)."
+          }
+        },
+        {
+          "id": "ta10-tva-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 50,
+          "catalog": "tvabierta",
+          "match": {
+            "number": 10
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "ta10-restream-45",
+          "kind": "hls",
+          "tier": "restream",
+          "priority": 60,
+          "url": "http://45.171.108.253:8888/TELEANTILLAS/index.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "untested",
+            "note": "iptv-org"
+          }
+        },
+        {
+          "id": "ta10-restream-168",
+          "kind": "hls",
+          "tier": "restream",
+          "priority": 62,
+          "url": "http://168.196.127.137:6001/play/a04o/index.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "untested",
+            "note": "iptv-org (Astra /play/ restream)"
+          }
+        },
+        {
+          "id": "ta10-restream-51",
+          "kind": "hls",
+          "tier": "restream",
+          "priority": 64,
+          "url": "http://51.81.93.29:8084/hls/tantillas.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "untested",
+            "note": "dominicanchannels.com"
+          }
+        },
+        {
+          "id": "ta10-iptvorg-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 66,
+          "catalog": "iptvorg_do",
+          "match": {
+            "tvg_id": "TeleAntillas.do"
+          },
+          "origin": "manual"
+        }
+      ]
+    },
+    {
+      "id": "telesistema11",
+      "number": 11,
+      "name": "Telesistema",
+      "group": "nacional",
+      "logo": "https://i.imgur.com/ZzeZKCu.png",
+      "epg": {
+        "iptvorg": "Telesistema11.do",
+        "gatotv": "telesistema_11"
+      },
+      "sources": [
+        {
+          "id": "ts11-wind",
+          "kind": "hls",
+          "tier": "isp",
+          "priority": 10,
+          "url": "https://cdn4.wind.do/streams/telesistema/telesistema_master.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "1080p/720p/360p (Wind Telecom). Served real 1080p to the app User-Agent from the US. Desktop-browser, curl and bare okhttp User-Agents get the 'regionblock' geo slate, so keep the slate check on."
+          }
+        },
+        {
+          "id": "ts11-dc-page",
+          "kind": "page_regex",
+          "tier": "aggregator",
+          "priority": 15,
+          "page": "https://dominicanchannels.com/telesistema-canal-11/",
+          "regex": "https://[a-z0-9.-]+\\.dmcdn\\.net/sec2\\([^)]+\\)/cloud/\\d+/x80ac48/[a-z]/live-\\d+\\.m3u8",
+          "max_iframes": 2,
+          "page_headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+          },
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "Tokenized Dailymotion URLs (live-720) on the aggregator page; one of two worked and played 1280x720."
+          }
+        },
+        {
+          "id": "ts11-dm",
+          "kind": "dailymotion",
+          "tier": "official",
+          "priority": 20,
+          "video_id": "x80ac48",
+          "embedder": "https://telesistema11.com.do/en-vivo/",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "Official Dailymotion live 'Streaming de Telesistema Canal 11'. Embedder required. 512x288 offered to the US datacenter. The CDN answered 403 to Python's HTTP client but 200 to curl with any User-Agent: verify with the app's OkHttp on the device."
+          }
+        },
+        {
+          "id": "ts11-tva",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 25,
+          "url": "https://hls.tvabierta.net/hls/011.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "down",
+            "note": "404 at test time; listed in tvabierta's catalog."
+          }
+        },
+        {
+          "id": "ts11-tva-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 50,
+          "catalog": "tvabierta",
+          "match": {
+            "number": 11
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "ts11-iptvorg-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 60,
+          "catalog": "iptvorg_do",
+          "match": {
+            "tvg_id": "Telesistema11.do"
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "ts11-youtube",
+          "kind": "youtube_live",
+          "tier": "partial",
+          "priority": 85,
+          "channel_id": "UCuQ0xwK-qIOUsc0JUmONZiA",
+          "handle": "@Telesistema11rd",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "offline",
+            "note": "Not live at check time; occasional programmes only."
+          }
+        },
+        {
+          "id": "ts11-youtube-sin",
+          "kind": "youtube_live",
+          "tier": "partial",
+          "priority": 90,
+          "channel_id": "UCbBIwG4LJfQyM4ZdoiujBxg",
+          "handle": "@NoticiasSIN",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "offline",
+            "note": "Noticias SIN newscasts only (they air on Telesistema)."
+          }
+        }
+      ]
+    },
+    {
+      "id": "telecentro13",
+      "number": 13,
+      "name": "Telecentro",
+      "group": "nacional",
+      "logo": "https://i.imgur.com/F17zNXh.png",
+      "epg": {
+        "iptvorg": "Telecentro.do",
+        "gatotv": "13_de_republica_dominicana_telecentro"
+      },
+      "sources": [
+        {
+          "id": "tc13-official-live2",
+          "kind": "hls",
+          "tier": "official",
+          "priority": 10,
+          "url": "https://live2.telemicro.com.do/live/telecentrocast_1080p/playlist.m3u8",
+          "headers": {
+            "Referer": "https://telemicro.com.do/players/13tv/index_pc.php",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+          },
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "blocked",
+            "note": "Grupo Telemicro backend: master 200 with Referer, IP:8443 edge reset from the US."
+          }
+        },
+        {
+          "id": "tc13-official-live4",
+          "kind": "hls",
+          "tier": "official",
+          "priority": 12,
+          "url": "https://live4.telemicro.com.do/live/telecentrocast_1080p/playlist.m3u8",
+          "headers": {
+            "Referer": "https://telemicro.com.do/players/13tv/index_pc.php",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+          },
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "blocked",
+            "note": "Alternate front-end."
+          }
+        },
+        {
+          "id": "tc13-tva-memfs",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 20,
+          "url": "https://ds.tvabierta.net/memfs/a581f58a-76a9-4025-8eda-4b0e5c37963e.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "1920x1080"
+          }
+        },
+        {
+          "id": "tc13-tva",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 25,
+          "url": "https://hls.tvabierta.net/hls/013.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "down",
+            "note": "404 at test time"
+          }
+        },
+        {
+          "id": "tc13-wind-ams",
+          "kind": "hls",
+          "tier": "isp",
+          "priority": 30,
+          "url": "http://190.122.104.210:5080/LiveApp/streams/tcentro.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "untested",
+            "note": "Wind Telecom address space (dominicanchannels.com)."
+          }
+        },
+        {
+          "id": "tc13-tva-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 50,
+          "catalog": "tvabierta",
+          "match": {
+            "number": 13
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "tc13-iptvorg-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 60,
+          "catalog": "iptvorg_do",
+          "match": {
+            "tvg_id": "Telecentro.do"
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "tc13-restream-51",
+          "kind": "hls",
+          "tier": "restream",
+          "priority": 64,
+          "url": "http://51.81.93.29:8084/hls/telecentro.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "untested",
+            "note": "dominicanchannels.com"
+          }
+        },
+        {
+          "id": "tc13-youtube",
+          "kind": "youtube_live",
+          "tier": "partial",
+          "priority": 85,
+          "channel_id": "UCKd3RqAWndTIflbZGmIoYKw",
+          "handle": "@TelecentroCanal13",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "Live morning show 'Despierta RD' at check time; scheduled shows only."
+          }
+        }
+      ]
+    },
+    {
+      "id": "digital15",
+      "number": 15,
+      "name": "Digital 15",
+      "group": "nacional",
+      "logo": "https://tvabierta.net/015.png",
+      "epg": {
+        "iptvorg": "Digital15.do",
+        "gatotv": "15_republica_dominicana"
+      },
+      "notes": "Carries Licey and Escogido home games.",
+      "sources": [
+        {
+          "id": "d15-official-live4",
+          "kind": "hls",
+          "tier": "official",
+          "priority": 10,
+          "url": "https://live4.telemicro.com.do/live/digital15cast_1080p/playlist.m3u8",
+          "headers": {
+            "Referer": "https://telemicro.com.do/players/15tv/index_pc.php",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+          },
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "blocked",
+            "note": "Master 200 with Referer (403 without); IP:8443 edge reset from the US."
+          }
+        },
+        {
+          "id": "d15-official-live2",
+          "kind": "hls",
+          "tier": "official",
+          "priority": 12,
+          "url": "https://live2.telemicro.com.do/live/digital15cast_1080p/playlist.m3u8",
+          "headers": {
+            "Referer": "https://telemicro.com.do/players/15tv/index_pc.php",
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:152.0) Gecko/20100101 Firefox/152.0"
+          },
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "blocked",
+            "note": "Alternate front-end."
+          }
+        },
+        {
+          "id": "d15-tva",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 20,
+          "url": "https://hls.tvabierta.net/hls/015.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "1920x1080"
+          }
+        },
+        {
+          "id": "d15-tva-memfs",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 25,
+          "url": "https://ds.tvabierta.net/memfs/505f0d04-159c-4e4f-a834-8137c183573c_output_0.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok"
+          }
+        },
+        {
+          "id": "d15-tva-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 50,
+          "catalog": "tvabierta",
+          "match": {
+            "number": 15
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "d15-iptvorg-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 60,
+          "catalog": "iptvorg_do",
+          "match": {
+            "tvg_id": "Digital15.do"
+          },
+          "origin": "manual"
+        }
+      ]
+    },
+    {
+      "id": "teleuniverso29",
+      "number": 29,
+      "name": "Teleuniverso",
+      "group": "deportes",
+      "hidden": true,
+      "logo": "https://tvabierta.net/029.png",
+      "notes": "Hidden: referenced by Águilas home games.",
+      "sources": [
+        {
+          "id": "tu29-dm",
+          "kind": "dailymotion",
+          "tier": "official",
+          "priority": 10,
+          "video_id": "xaio352",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "Dailymotion live 'Teleuniverso Canal29'; no embedder restriction; 512x288 to the US datacenter. The CDN answered 403 to Python's HTTP client but 200 to curl with any User-Agent: verify with the app's OkHttp on the device."
+          }
+        },
+        {
+          "id": "tu29-tva",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 20,
+          "url": "https://hls.tvabierta.net/hls/029.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok"
+          }
+        },
+        {
+          "id": "tu29-tva-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 50,
+          "catalog": "tvabierta",
+          "match": {
+            "number": 29
+          },
+          "origin": "manual"
+        }
+      ]
+    },
+    {
+      "id": "vtv32",
+      "number": 32,
+      "name": "VTV",
+      "group": "nacional",
+      "logo": "https://tvabierta.net/vtv32.png",
+      "epg": {
+        "iptvorg": "VTVCanal32.do"
+      },
+      "sources": [
+        {
+          "id": "vtv-lsg",
+          "kind": "hls",
+          "tier": "official",
+          "priority": 10,
+          "url": "https://edge.livestreaminggroup.info/vtv32live/index.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "1280x720; streaming provider's edge."
+          }
+        },
+        {
+          "id": "vtv-lsg-mono",
+          "kind": "hls",
+          "tier": "official",
+          "priority": 12,
+          "url": "https://edge.livestreaminggroup.info/vtv32live/tracks-v1a1/mono.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "Same feed, single-rendition playlist."
+          }
+        },
+        {
+          "id": "vtv-lsg-3507",
+          "kind": "hls",
+          "tier": "official",
+          "priority": 20,
+          "url": "https://cnn.livestreaminggroup.info:3507/live/vtv32live.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "untested",
+            "note": "iptv-org; port 3507 not testable from the sandbox."
+          }
+        },
+        {
+          "id": "vtv-tva",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 25,
+          "url": "https://hls.tvabierta.net/hls/032.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "1280x720"
+          }
+        },
+        {
+          "id": "vtv-tva-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 50,
+          "catalog": "tvabierta",
+          "match": {
+            "number": 32
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "vtv-iptvorg-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 60,
+          "catalog": "iptvorg_do",
+          "match": {
+            "tvg_id": "VTVCanal32.do"
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "vtv-youtube",
+          "kind": "youtube_live",
+          "tier": "partial",
+          "priority": 85,
+          "channel_id": "UC1toBK5z40-8rfxKGB1QCwg",
+          "handle": "@VTVCanal32",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "Event lives only (a baseball game at check time)."
+          }
+        }
+      ]
+    },
+    {
+      "id": "cdndeportes36",
+      "number": 36,
+      "name": "CDN Deportes",
+      "group": "deportes",
+      "logo": "https://i.imgur.com/yU5LqTL.png",
+      "epg": {
+        "iptvorg": "CDNDeportes.do",
+        "gatotv": "cdn_deportes"
+      },
+      "notes": "Carries Águilas Cibaeñas home games. Only two independent sources found; discovery should look for more.",
+      "sources": [
+        {
+          "id": "cdnd-tva",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 15,
+          "url": "https://hls.tvabierta.net/hls/036.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "544x480"
+          }
+        },
+        {
+          "id": "cdnd-dm",
+          "kind": "dailymotion",
+          "tier": "official",
+          "priority": 20,
+          "video_id": "xar1qcu",
+          "embedder": "https://cdndeportes.com.do/en-vivo/",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "Official Dailymotion live; 512x288 to the US datacenter. The CDN answered 403 to Python's HTTP client but 200 to curl with any User-Agent: verify with the app's OkHttp on the device."
+          }
+        },
+        {
+          "id": "cdnd-tva-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 50,
+          "catalog": "tvabierta",
+          "match": {
+            "number": 36
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "cdnd-iptvorg-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 60,
+          "catalog": "iptvorg_do",
+          "match": {
+            "tvg_id": "CDNDeportes.do"
+          },
+          "origin": "manual"
+        }
+      ]
+    },
+    {
+      "id": "cdn37",
+      "number": 37,
+      "name": "CDN",
+      "group": "nacional",
+      "logo": "https://i.imgur.com/eQyjIgf.png",
+      "epg": {
+        "iptvorg": "CDN.do",
+        "gatotv": "37_republica_dominicana"
+      },
+      "sources": [
+        {
+          "id": "cdn37-tva",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 15,
+          "url": "https://hls.tvabierta.net/hls/037.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "1280x720"
+          }
+        },
+        {
+          "id": "cdn37-dm",
+          "kind": "dailymotion",
+          "tier": "official",
+          "priority": 20,
+          "video_id": "xb1ndqm",
+          "embedder": "https://cdn.com.do/envivo/",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "Official Dailymotion live; 512x288 to the US datacenter. The CDN answered 403 to Python's HTTP client but 200 to curl with any User-Agent: verify with the app's OkHttp on the device."
+          }
+        },
+        {
+          "id": "cdn37-tva-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 50,
+          "catalog": "tvabierta",
+          "match": {
+            "number": 37
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "cdn37-restream-190",
+          "kind": "hls",
+          "tier": "restream",
+          "priority": 60,
+          "url": "http://190.61.90.17:40000/play/a03p/index.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "untested",
+            "note": "iptv-org (Astra restream, 576p)"
+          }
+        },
+        {
+          "id": "cdn37-restream-187",
+          "kind": "hls",
+          "tier": "restream",
+          "priority": 62,
+          "url": "http://187.245.231.226:8000/play/a0ss/index.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "untested",
+            "note": "iptv-org (Astra restream, 480p)"
+          }
+        },
+        {
+          "id": "cdn37-iptvorg-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 66,
+          "catalog": "iptvorg_do",
+          "match": {
+            "tvg_id": "CDN.do"
+          },
+          "origin": "manual"
+        },
+        {
+          "id": "cdn37-youtube",
+          "kind": "youtube_live",
+          "tier": "partial",
+          "priority": 85,
+          "channel_id": "UCpFfLf9o4wJr-yr7dG8gYug",
+          "handle": "@cdn37rd",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "offline",
+            "note": "Not live at check time; scheduled news only."
+          }
+        }
+      ]
+    },
+    {
+      "id": "coral39",
+      "number": 39,
+      "name": "Coral 39",
+      "group": "deportes",
+      "hidden": true,
+      "logo": "https://tvabierta.net/039.png",
+      "notes": "Hidden: referenced by Estrellas home games.",
+      "sources": [
+        {
+          "id": "co39-tva",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 10,
+          "url": "https://hls.tvabierta.net/hls/039.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "1920x1080"
+          }
+        },
+        {
+          "id": "co39-tva-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 50,
+          "catalog": "tvabierta",
+          "match": {
+            "number": 39
+          },
+          "origin": "manual"
+        }
+      ]
+    },
+    {
+      "id": "licey",
+      "number": 51,
+      "name": "Tigres del Licey",
+      "group": "beisbol",
+      "kind": "team",
+      "team_id": 672,
+      "logo": "https://www.mlbstatic.com/team-logos/672.svg",
+      "notes": "Home games on YouTube @TigresDelLicey1 (scheduled weeks ahead) and Digital 15.",
+      "sources": []
+    },
+    {
+      "id": "escogido",
+      "number": 52,
+      "name": "Leones del Escogido",
+      "group": "beisbol",
+      "kind": "team",
+      "team_id": 671,
+      "logo": "https://www.mlbstatic.com/team-logos/671.svg",
+      "notes": "Home games on YouTube @abriendosports ('La Cueva Roja', created near game time) and Digital 15. 'Escogido TV' itself is a cable-only channel.",
+      "sources": []
+    },
+    {
+      "id": "aguilas",
+      "number": 53,
+      "name": "Águilas Cibaeñas",
+      "group": "beisbol",
+      "kind": "team",
+      "team_id": 667,
+      "logo": "https://www.mlbstatic.com/team-logos/667.svg",
+      "notes": "Home games on YouTube @ÁguilasCibaeñasoficial (created near game time), CDN Deportes and Teleuniverso 29.",
+      "sources": []
+    },
+    {
+      "id": "estrellas",
+      "number": 54,
+      "name": "Estrellas Orientales",
+      "group": "beisbol",
+      "kind": "team",
+      "team_id": 669,
+      "logo": "https://www.mlbstatic.com/team-logos/669.svg",
+      "notes": "Home games on YouTube @EstrellasBaseballClub (scheduled ahead), Teleantillas and Coral 39.",
+      "sources": []
+    }
+  ]
+}
