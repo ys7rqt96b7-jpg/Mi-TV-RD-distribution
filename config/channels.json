@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-10-23T16:00:00Z",
+  "updated": "2026-10-23T23:29:52.341095Z",
   "notes": "Seed config for Canales RD. 'verified' records a probe from a US datacenter on 2026-10-23; 'blocked'/'untested' sources may work from a Dominican or residential connection. Re-run tools/check_sources.py from the parents' network before release.",
   "defaults": {
     "user_agent": "CanalesRD/1.0 (Linux; Android; Fire TV) ExoPlayerLib/1.9.4",
@@ -523,6 +523,16 @@
             "tvg_id": "Antena7.do"
           },
           "origin": "manual"
+        },
+        {
+          "id": "antena7-auto-c3569bd67a5b",
+          "kind": "hls",
+          "url": "https://alba-do-antena7-antena7.stream.mediatiquestream.com/index.m3u8",
+          "headers": {},
+          "origin": "auto",
+          "priority": 70,
+          "tier": "partial",
+          "notes": "Discovered from iptvorg"
         }
       ]
     },
@@ -1162,6 +1172,16 @@
             "tvg_id": "Digital15.do"
           },
           "origin": "manual"
+        },
+        {
+          "id": "digital15-auto-6fd0302e7a32",
+          "kind": "hls",
+          "url": "https://ds.tvabierta.net/memfs/505f0d04-159c-4e4f-a834-8137c183573c.m3u8",
+          "headers": {},
+          "origin": "auto",
+          "priority": 70,
+          "tier": "partial",
+          "notes": "Discovered from tvabierta"
         }
       ]
     },
@@ -1316,6 +1336,16 @@
             "result": "ok",
             "note": "Event lives only (a baseball game at check time)."
           }
+        },
+        {
+          "id": "vtv32-auto-be4cae101fca",
+          "kind": "hls",
+          "url": "https://dbt-gcore-video-cdn.b-cdn.net/mpegts/986244_4049034/master_mpegts.m3u8",
+          "headers": {},
+          "origin": "auto",
+          "priority": 70,
+          "tier": "partial",
+          "notes": "Discovered from iptvorg"
         }
       ]
     },
