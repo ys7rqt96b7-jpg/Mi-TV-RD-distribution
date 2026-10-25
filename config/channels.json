@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-10-23T23:29:52.341095Z",
+  "updated": "2026-10-25T13:27:45.338960Z",
   "notes": "Seed config for Canales RD. 'verified' records a probe from a US datacenter on 2026-10-23; 'blocked'/'untested' sources may work from a Dominican or residential connection. Re-run tools/check_sources.py from the parents' network before release.",
   "defaults": {
     "user_agent": "CanalesRD/1.0 (Linux; Android; Fire TV) ExoPlayerLib/1.9.4",
@@ -1346,6 +1346,16 @@
           "priority": 70,
           "tier": "partial",
           "notes": "Discovered from iptvorg"
+        },
+        {
+          "id": "vtv32-auto-43580189fa4f",
+          "kind": "hls",
+          "url": "https://ds.tvabierta.net/memfs/c8e72669-4249-4195-a8a0-3adfca56df46.m3u8",
+          "headers": {},
+          "origin": "auto",
+          "priority": 70,
+          "tier": "partial",
+          "notes": "Discovered from tvabierta"
         }
       ]
     },
