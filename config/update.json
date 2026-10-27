@@ -1,8 +1,8 @@
 {
-  "version_code": 26102714,
-  "version_name": "1.0.4",
+  "version_code": 26102715,
+  "version_name": "1.0.5",
   "apk_url": "https://ys7rqt96b7-jpg.github.io/Mi-TV-RD-distribution/downloads/Canales-RD.apk",
-  "sha256": "9571b970d9a733caaa9c6b9bf441b7f97f49ae0f8caab1b466f39995cec55731",
+  "sha256": "2d499ebf0bf51b4776e1f2224b3c3e6f24e4a47c08b7cb8e4a8e08095e4471fa",
   "signing_cert_sha256": "fd7cd1b80b9e749f6a605e0d96a69a2c43a8d18cde32a0f9da37b1288d173cfd",
-  "size_bytes": 15401166
+  "size_bytes": 15401176
 }
