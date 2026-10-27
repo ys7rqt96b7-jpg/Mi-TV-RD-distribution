@@ -25,7 +25,7 @@ jobs:
         run: |
           VERSION=$(python3 -c 'import json; print(json.load(open("config/update.json"))["version_name"])')
           TAG="v$VERSION"
-          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "MiTV $VERSION" --notes "Instale el APK sobre la versión anterior para conservar sus ajustes."
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "Canales RD $VERSION" --notes "Instale el APK sobre la versión anterior para conservar sus ajustes."
           gh release upload "$TAG" downloads/Canales-RD.apk --clobber
       - uses: actions/configure-pages@v5
       - name: Prepare public site

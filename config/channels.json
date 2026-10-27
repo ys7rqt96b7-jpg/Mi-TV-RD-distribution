@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-10-27T14:41:24.846132Z",
+  "updated": "2026-10-27T15:02:18.942400Z",
   "notes": "Seed config for Canales RD. 'verified' records a probe from a US datacenter on 2026-10-23; 'blocked'/'untested' sources may work from a Dominican or residential connection. Re-run tools/check_sources.py from the parents' network before release.",
   "defaults": {
     "user_agent": "CanalesRD/1.0 (Linux; Android; Fire TV) ExoPlayerLib/1.9.4",
@@ -224,12 +224,11 @@
           "url": "https://cdn.protvradiostream.com/canal4rd-1/ngrp:canal4rd-1_all/playlist.m3u8",
           "origin": "manual",
           "verified": {
-            "date": "2026-10-27",
-            "from": "mx home Linux (Tailscale administration); owner iPad report",
-            "result": "degraded",
-            "note": "Official feed decodes in FFmpeg, but owner reports persistent browser picture corruption. Browser adapter must re-encode video to clean H264; Android retains native decoding. Prior US probes found all ABR renditions reachable."
-          },
-          "browser_reencode": true
+            "date": "2026-10-23",
+            "from": "US datacenter",
+            "result": "ok",
+            "note": "1080p/720p/576p/360p ABR. Embedded by rtvd.gob.do and rtvdclic.com. Playlists are gzip-compressed even when not requested."
+          }
         },
         {
           "id": "rtvd4-youtube",
@@ -306,8 +305,7 @@
       "logo": "https://i.imgur.com/WhgySAk.png",
       "epg": {
         "iptvorg": "Telemicro.do",
-        "gatotv": "5_de_republica_dominicana_telemicro",
-        "xmltv": "Canal.5.de.República.Dominicana.(Telemicro).do"
+        "gatotv": "5_de_republica_dominicana_telemicro"
       },
       "sources": [
         {
@@ -438,8 +436,7 @@
       "logo": "https://i.imgur.com/zKWFgeQ.png",
       "epg": {
         "iptvorg": "Antena7.do",
-        "gatotv": "7_republica_dominicana",
-        "xmltv": "Canal.7.de.Antena.Latina.(República.Dominicana).do"
+        "gatotv": "7_republica_dominicana"
       },
       "notes": "The old iptv-org URL (alba-do-antena7-antena7.stream.mediatiquestream.com) no longer resolves.",
       "sources": [
@@ -572,6 +569,16 @@
             "number": 8
           },
           "origin": "manual"
+        },
+        {
+          "id": "telemedios8-auto-92e993365024",
+          "kind": "hls",
+          "url": "https://hls.tvabierta.net/hls/008.m3u8",
+          "headers": {},
+          "origin": "auto",
+          "priority": 70,
+          "tier": "partial",
+          "notes": "Discovered from tvabierta"
         }
       ]
     },
@@ -583,8 +590,7 @@
       "logo": "https://tvabierta.net/009.png",
       "epg": {
         "iptvorg": "ColorVision.do",
-        "gatotv": "9_republica_dominicana",
-        "xmltv": "Canal.9.de.Color.Visión.(República.Dominicana).do"
+        "gatotv": "9_republica_dominicana"
       },
       "sources": [
         {
@@ -676,8 +682,7 @@
       "logo": "https://tvabierta.net/010.png",
       "epg": {
         "iptvorg": "TeleAntillas.do",
-        "gatotv": "2_de_republica_dominicana_teleantillas",
-        "xmltv": "Canal.2.de.República.Dominicana.(Teleantillas).do"
+        "gatotv": "2_de_republica_dominicana_teleantillas"
       },
       "notes": "Moved from canal 2 to canal 10. Carries Estrellas Orientales home games.",
       "sources": [
@@ -820,8 +825,7 @@
       "logo": "https://i.imgur.com/ZzeZKCu.png",
       "epg": {
         "iptvorg": "Telesistema11.do",
-        "gatotv": "telesistema_11",
-        "xmltv": "Canal.Telesistema.11.(República.Dominicana).do"
+        "gatotv": "telesistema_11"
       },
       "sources": [
         {
@@ -948,8 +952,7 @@
       "logo": "https://i.imgur.com/F17zNXh.png",
       "epg": {
         "iptvorg": "Telecentro.do",
-        "gatotv": "13_de_republica_dominicana_telecentro",
-        "xmltv": "Canal.Telecentro.(13.de.República.Dominicana).do"
+        "gatotv": "13_de_republica_dominicana_telecentro"
       },
       "sources": [
         {
@@ -1091,8 +1094,7 @@
       "logo": "https://tvabierta.net/015.png",
       "epg": {
         "iptvorg": "Digital15.do",
-        "gatotv": "15_republica_dominicana",
-        "xmltv": "Canal.15.(Digital.Quince.Telemicro).(República.Dominicana).do"
+        "gatotv": "15_republica_dominicana"
       },
       "notes": "Carries Licey and Escogido home games.",
       "sources": [
@@ -1354,6 +1356,16 @@
           "priority": 70,
           "tier": "partial",
           "notes": "Discovered from iptvorg"
+        },
+        {
+          "id": "vtv32-auto-43580189fa4f",
+          "kind": "hls",
+          "url": "https://ds.tvabierta.net/memfs/c8e72669-4249-4195-a8a0-3adfca56df46.m3u8",
+          "headers": {},
+          "origin": "auto",
+          "priority": 70,
+          "tier": "partial",
+          "notes": "Discovered from tvabierta"
         }
       ]
     },
@@ -1365,8 +1377,7 @@
       "logo": "https://i.imgur.com/yU5LqTL.png",
       "epg": {
         "iptvorg": "CDNDeportes.do",
-        "gatotv": "cdn_deportes",
-        "xmltv": "Canal.CDN.Deportes.do"
+        "gatotv": "cdn_deportes"
       },
       "notes": "Carries Águilas Cibaeñas home games. Only two independent sources found; discovery should look for more.",
       "sources": [
@@ -1431,8 +1442,7 @@
       "logo": "https://i.imgur.com/eQyjIgf.png",
       "epg": {
         "iptvorg": "CDN.do",
-        "gatotv": "37_republica_dominicana",
-        "xmltv": "Canal.37.de.República.Dominicana.(CDN).do"
+        "gatotv": "37_republica_dominicana"
       },
       "sources": [
         {
