@@ -1,13 +1,13 @@
 {
  "schema": 1,
- "checked_at": "2026-10-30T00:01:47Z",
+ "checked_at": "2026-10-30T06:06:56Z",
  "runner": "github-us",
  "country": "US",
  "sources": {
   "rtvd4-official": {
    "id": "rtvd4-official",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:06Z",
+   "checked_at": "2026-10-30T06:05:54Z",
    "state": "ok",
    "http": 200,
    "height": 1080,
@@ -72,32 +72,32 @@
    ],
    "codec_state": "ok",
    "thumbnail": "rtvd4-official.jpg",
-   "ms": 4324
+   "ms": 16978
   },
   "rtvd4-youtube": {
    "id": "rtvd4-youtube",
    "kind": "youtube_live",
-   "checked_at": "2026-10-30T00:01:06Z",
+   "checked_at": "2026-10-30T06:05:54Z",
    "state": "not_live",
    "http": null,
    "height": null,
    "reason": "nothing live right now",
-   "ms": 3126
+   "ms": 1011
   },
   "rtvd4-tva": {
    "id": "rtvd4-tva",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:06Z",
+   "checked_at": "2026-10-30T06:05:54Z",
    "state": "down",
    "http": 404,
    "height": null,
    "reason": "HTTP 404",
-   "ms": 194
+   "ms": 323
   },
   "rtvd4-tva-memfs": {
    "id": "rtvd4-tva-memfs",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:06Z",
+   "checked_at": "2026-10-30T06:05:54Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -116,12 +116,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "rtvd4-tva-memfs.jpg",
-   "ms": 2657
+   "ms": 5147
   },
   "rtvd4-tva-cat": {
    "id": "rtvd4-tva-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:06Z",
+   "checked_at": "2026-10-30T06:05:54Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -140,12 +140,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "rtvd4-tva-cat.jpg",
-   "ms": 2741
+   "ms": 5944
   },
   "rtvd4-iptvorg-cat": {
    "id": "rtvd4-iptvorg-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:06Z",
+   "checked_at": "2026-10-30T06:05:54Z",
    "state": "ok",
    "http": 200,
    "height": 1080,
@@ -210,12 +210,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "rtvd4-iptvorg-cat.jpg",
-   "ms": 4301
+   "ms": 16790
   },
   "tm5-official-live2": {
    "id": "tm5-official-live2",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:06Z",
+   "checked_at": "2026-10-30T06:05:54Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -234,24 +234,36 @@
    ],
    "codec_state": "ok",
    "thumbnail": "tm5-official-live2.jpg",
-   "ms": 7799
+   "ms": 3755
   },
   "tm5-official-live4": {
    "id": "tm5-official-live4",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:08Z",
+   "checked_at": "2026-10-30T06:05:55Z",
    "state": "ok",
    "http": 200,
    "height": null,
    "reason": "ok",
-   "codecs": [],
-   "codec_state": "unverified",
-   "ms": 5909
+   "codecs": [
+    {
+     "codec_name": "h264",
+     "codec_type": "video",
+     "width": 1920,
+     "height": 1080
+    },
+    {
+     "codec_name": "aac",
+     "codec_type": "audio"
+    }
+   ],
+   "codec_state": "ok",
+   "thumbnail": "tm5-official-live4.jpg",
+   "ms": 3712
   },
   "tm5-official-55": {
    "id": "tm5-official-55",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:08Z",
+   "checked_at": "2026-10-30T06:05:58Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -270,12 +282,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "tm5-official-55.jpg",
-   "ms": 2039
+   "ms": 3288
   },
   "tm5-tva-memfs": {
    "id": "tm5-tva-memfs",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:09Z",
+   "checked_at": "2026-10-30T06:05:58Z",
    "state": "ok",
    "http": 200,
    "height": 404,
@@ -294,22 +306,22 @@
    ],
    "codec_state": "ok",
    "thumbnail": "tm5-tva-memfs.jpg",
-   "ms": 2048
+   "ms": 4205
   },
   "tm5-tva": {
    "id": "tm5-tva",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:10Z",
+   "checked_at": "2026-10-30T06:05:59Z",
    "state": "down",
    "http": 404,
    "height": null,
    "reason": "HTTP 404",
-   "ms": 121
+   "ms": 235
   },
   "tm5-tva-cat": {
    "id": "tm5-tva-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:10Z",
+   "checked_at": "2026-10-30T06:05:59Z",
    "state": "ok",
    "http": 200,
    "height": 404,
@@ -328,12 +340,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "tm5-tva-cat.jpg",
-   "ms": 1846
+   "ms": 4230
   },
   "tm5-iptvorg-cat": {
    "id": "tm5-iptvorg-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:10Z",
+   "checked_at": "2026-10-30T06:06:00Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -352,22 +364,22 @@
    ],
    "codec_state": "ok",
    "thumbnail": "tm5-iptvorg-cat.jpg",
-   "ms": 1918
+   "ms": 3225
   },
   "tm5-restream-51": {
    "id": "tm5-restream-51",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:10Z",
+   "checked_at": "2026-10-30T06:06:01Z",
    "state": "down",
    "http": null,
    "height": null,
-   "reason": "curl: (7) Failed to connect to 51.81.93.29 port 8084 after 20 ms: Could not conn",
-   "ms": 27
+   "reason": "curl: (7) Failed to connect to 51.81.93.29 port 8084 after 64 ms: Could not conn",
+   "ms": 71
   },
   "a7-official": {
    "id": "a7-official",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:10Z",
+   "checked_at": "2026-10-30T06:06:01Z",
    "state": "ok",
    "http": 200,
    "height": 720,
@@ -376,22 +388,12 @@
     {
      "codec_name": "h264",
      "codec_type": "video",
-     "width": 640,
-     "height": 360
-    },
-    {
-     "codec_name": "aac",
-     "codec_type": "audio"
-    },
-    {
-     "codec_name": "aac",
-     "codec_type": "audio"
-    },
-    {
-     "codec_name": "h264",
-     "codec_type": "video",
      "width": 1024,
      "height": 576
+    },
+    {
+     "codec_name": "aac",
+     "codec_type": "audio"
     },
     {
      "codec_name": "aac",
@@ -404,12 +406,22 @@
      "height": 720
     },
     {
+     "codec_name": "aac",
+     "codec_type": "audio"
+    },
+    {
      "codec_name": "h264",
      "codec_type": "video",
      "width": 640,
      "height": 360
     },
     {
+     "codec_name": "h264",
+     "codec_type": "video",
+     "width": 1024,
+     "height": 576
+    },
+    {
      "codec_name": "aac",
      "codec_type": "audio"
     },
@@ -420,8 +432,8 @@
     {
      "codec_name": "h264",
      "codec_type": "video",
-     "width": 1024,
-     "height": 576
+     "width": 640,
+     "height": 360
     },
     {
      "codec_name": "aac",
@@ -436,12 +448,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "a7-official.jpg",
-   "ms": 2877
+   "ms": 4547
   },
   "a7-official-page": {
    "id": "a7-official-page",
    "kind": "page_regex",
-   "checked_at": "2026-10-30T00:01:11Z",
+   "checked_at": "2026-10-30T06:06:02Z",
    "state": "ok",
    "http": 200,
    "height": 720,
@@ -450,22 +462,12 @@
     {
      "codec_name": "h264",
      "codec_type": "video",
-     "width": 640,
-     "height": 360
-    },
-    {
-     "codec_name": "aac",
-     "codec_type": "audio"
-    },
-    {
-     "codec_name": "aac",
-     "codec_type": "audio"
-    },
-    {
-     "codec_name": "h264",
-     "codec_type": "video",
      "width": 1024,
      "height": 576
+    },
+    {
+     "codec_name": "aac",
+     "codec_type": "audio"
     },
     {
      "codec_name": "aac",
@@ -478,12 +480,22 @@
      "height": 720
     },
     {
+     "codec_name": "aac",
+     "codec_type": "audio"
+    },
+    {
      "codec_name": "h264",
      "codec_type": "video",
      "width": 640,
      "height": 360
     },
     {
+     "codec_name": "h264",
+     "codec_type": "video",
+     "width": 1024,
+     "height": 576
+    },
+    {
      "codec_name": "aac",
      "codec_type": "audio"
     },
@@ -494,8 +506,8 @@
     {
      "codec_name": "h264",
      "codec_type": "video",
-     "width": 1024,
-     "height": 576
+     "width": 640,
+     "height": 360
     },
     {
      "codec_name": "aac",
@@ -510,12 +522,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "a7-official-page.jpg",
-   "ms": 2848
+   "ms": 3066
   },
   "a7-tva": {
    "id": "a7-tva",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:12Z",
+   "checked_at": "2026-10-30T06:06:03Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -524,8 +536,8 @@
     {
      "codec_name": "h264",
      "codec_type": "video",
-     "width": 1024,
-     "height": 576
+     "width": 1280,
+     "height": 720
     },
     {
      "codec_name": "aac",
@@ -534,22 +546,22 @@
    ],
    "codec_state": "ok",
    "thumbnail": "a7-tva.jpg",
-   "ms": 1851
+   "ms": 3548
   },
   "a7-wind-ams": {
    "id": "a7-wind-ams",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:12Z",
+   "checked_at": "2026-10-30T06:06:03Z",
    "state": "down",
    "http": 404,
    "height": null,
    "reason": "HTTP 404",
-   "ms": 171
+   "ms": 240
   },
   "a7-tva-cat": {
    "id": "a7-tva-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:12Z",
+   "checked_at": "2026-10-30T06:06:03Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -558,8 +570,8 @@
     {
      "codec_name": "h264",
      "codec_type": "video",
-     "width": 1024,
-     "height": 576
+     "width": 1280,
+     "height": 720
     },
     {
      "codec_name": "aac",
@@ -568,12 +580,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "a7-tva-cat.jpg",
-   "ms": 1872
+   "ms": 3586
   },
   "a7-iptvorg-cat": {
    "id": "a7-iptvorg-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:13Z",
+   "checked_at": "2026-10-30T06:06:06Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -582,8 +594,8 @@
     {
      "codec_name": "h264",
      "codec_type": "video",
-     "width": 1024,
-     "height": 576
+     "width": 1280,
+     "height": 720
     },
     {
      "codec_name": "aac",
@@ -592,22 +604,22 @@
    ],
    "codec_state": "ok",
    "thumbnail": "a7-iptvorg-cat.jpg",
-   "ms": 1702
+   "ms": 3639
   },
   "antena7-auto-c3569bd67a5b": {
    "id": "antena7-auto-c3569bd67a5b",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:14Z",
+   "checked_at": "2026-10-30T06:06:06Z",
    "state": "down",
    "http": null,
    "height": null,
    "reason": "curl: (6) Could not resolve host: alba-do-antena7-antena7.stream.mediatiquestrea",
-   "ms": 54
+   "ms": 64
   },
   "tm8-tva-memfs": {
    "id": "tm8-tva-memfs",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:14Z",
+   "checked_at": "2026-10-30T06:06:06Z",
    "state": "ok",
    "http": 200,
    "height": 480,
@@ -626,12 +638,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "tm8-tva-memfs.jpg",
-   "ms": 2068
+   "ms": 4584
   },
   "tm8-tva-cat": {
    "id": "tm8-tva-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:14Z",
+   "checked_at": "2026-10-30T06:06:06Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -650,12 +662,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "tm8-tva-cat.jpg",
-   "ms": 1569
+   "ms": 3381
   },
   "telemedios8-auto-92e993365024": {
    "id": "telemedios8-auto-92e993365024",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:14Z",
+   "checked_at": "2026-10-30T06:06:07Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -674,59 +686,15 @@
    ],
    "codec_state": "ok",
    "thumbnail": "telemedios8-auto-92e993365024.jpg",
-   "ms": 1579
+   "ms": 3456
   },
   "cv9-wind": {
    "id": "cv9-wind",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:14Z",
+   "checked_at": "2026-10-30T06:06:09Z",
    "state": "ok",
    "http": 200,
    "height": 1080,
-   "reason": "ok",
-   "codecs": [
-    {
-     "codec_name": "h264",
-     "codec_type": "video",
-     "width": 0,
-     "height": 0
-    },
-    {
-     "codec_name": "aac",
-     "codec_type": "audio"
-    },
-    {
-     "codec_name": "h264",
-     "codec_type": "video",
-     "width": 0,
-     "height": 0
-    },
-    {
-     "codec_name": "aac",
-     "codec_type": "audio"
-    },
-    {
-     "codec_name": "h264",
-     "codec_type": "video",
-     "width": 1536,
-     "height": 1024
-    },
-    {
-     "codec_name": "aac",
-     "codec_type": "audio"
-    }
-   ],
-   "codec_state": "ok",
-   "thumbnail": "cv9-wind.jpg",
-   "ms": 9848
-  },
-  "cv9-tva": {
-   "id": "cv9-tva",
-   "kind": "hls",
-   "checked_at": "2026-10-30T00:01:14Z",
-   "state": "ok",
-   "http": 200,
-   "height": null,
    "reason": "ok",
    "codecs": [
     {
@@ -738,16 +706,46 @@
     {
      "codec_name": "aac",
      "codec_type": "audio"
+    },
+    {
+     "codec_name": "h264",
+     "codec_type": "video",
+     "width": 1280,
+     "height": 720
+    },
+    {
+     "codec_name": "aac",
+     "codec_type": "audio"
+    },
+    {
+     "codec_name": "h264",
+     "codec_type": "video",
+     "width": 0,
+     "height": 0
+    },
+    {
+     "codec_name": "aac",
+     "codec_type": "audio"
     }
    ],
    "codec_state": "ok",
-   "thumbnail": "cv9-tva.jpg",
-   "ms": 1521
+   "thumbnail": "cv9-wind.jpg",
+   "ms": 14501
+  },
+  "cv9-tva": {
+   "id": "cv9-tva",
+   "kind": "hls",
+   "checked_at": "2026-10-30T06:06:10Z",
+   "state": "down",
+   "http": 404,
+   "height": null,
+   "reason": "HTTP 404",
+   "ms": 239
   },
   "cv9-dm": {
    "id": "cv9-dm",
    "kind": "dailymotion",
-   "checked_at": "2026-10-30T00:01:15Z",
+   "checked_at": "2026-10-30T06:06:10Z",
    "state": "ok",
    "http": 200,
    "height": 180,
@@ -770,60 +768,32 @@
    ],
    "codec_state": "ok",
    "thumbnail": "cv9-dm.jpg",
-   "ms": 9440
+   "ms": 11445
   },
   "cv9-tva-memfs": {
    "id": "cv9-tva-memfs",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:15Z",
-   "state": "ok",
-   "http": 200,
-   "height": 480,
-   "reason": "ok",
-   "codecs": [
-    {
-     "codec_name": "h264",
-     "codec_type": "video",
-     "width": 848,
-     "height": 480
-    },
-    {
-     "codec_name": "aac",
-     "codec_type": "audio"
-    }
-   ],
-   "codec_state": "ok",
-   "thumbnail": "cv9-tva-memfs.jpg",
-   "ms": 1974
+   "checked_at": "2026-10-30T06:06:10Z",
+   "state": "down",
+   "http": 404,
+   "height": null,
+   "reason": "HTTP 404",
+   "ms": 252
   },
   "cv9-tva-cat": {
    "id": "cv9-tva-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:15Z",
-   "state": "ok",
-   "http": 200,
-   "height": 480,
-   "reason": "ok",
-   "codecs": [
-    {
-     "codec_name": "h264",
-     "codec_type": "video",
-     "width": 848,
-     "height": 480
-    },
-    {
-     "codec_name": "aac",
-     "codec_type": "audio"
-    }
-   ],
-   "codec_state": "ok",
-   "thumbnail": "cv9-tva-cat.jpg",
-   "ms": 1885
+   "checked_at": "2026-10-30T06:06:10Z",
+   "state": "down",
+   "http": 404,
+   "height": null,
+   "reason": "HTTP 404",
+   "ms": 241
   },
   "cv9-iptvorg-cat": {
    "id": "cv9-iptvorg-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:16Z",
+   "checked_at": "2026-10-30T06:06:10Z",
    "state": "ok",
    "http": 200,
    "height": 1080,
@@ -832,8 +802,18 @@
     {
      "codec_name": "h264",
      "codec_type": "video",
-     "width": 0,
-     "height": 0
+     "width": 1280,
+     "height": 720
+    },
+    {
+     "codec_name": "aac",
+     "codec_type": "audio"
+    },
+    {
+     "codec_name": "h264",
+     "codec_type": "video",
+     "width": 1280,
+     "height": 720
     },
     {
      "codec_name": "aac",
@@ -844,16 +824,6 @@
      "codec_type": "video",
      "width": 0,
      "height": 0
-    },
-    {
-     "codec_name": "aac",
-     "codec_type": "audio"
-    },
-    {
-     "codec_name": "h264",
-     "codec_type": "video",
-     "width": 1536,
-     "height": 1024
     },
     {
      "codec_name": "aac",
@@ -862,12 +832,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "cv9-iptvorg-cat.jpg",
-   "ms": 9343
+   "ms": 14128
   },
   "ta10-tva": {
    "id": "ta10-tva",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:16Z",
+   "checked_at": "2026-10-30T06:06:10Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -886,12 +856,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "ta10-tva.jpg",
-   "ms": 1356
+   "ms": 3311
   },
   "ta10-dc-page": {
    "id": "ta10-dc-page",
    "kind": "page_regex",
-   "checked_at": "2026-10-30T00:01:17Z",
+   "checked_at": "2026-10-30T06:06:11Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -910,32 +880,32 @@
    ],
    "codec_state": "ok",
    "thumbnail": "ta10-dc-page.jpg",
-   "ms": 2181
+   "ms": 2725
   },
   "ta10-dm": {
    "id": "ta10-dm",
    "kind": "dailymotion",
-   "checked_at": "2026-10-30T00:01:17Z",
+   "checked_at": "2026-10-30T06:06:11Z",
    "state": "down",
    "http": 403,
    "height": null,
    "reason": "HTTP 403",
-   "ms": 774
+   "ms": 521
   },
   "ta10-wind-ams": {
    "id": "ta10-wind-ams",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:17Z",
+   "checked_at": "2026-10-30T06:06:11Z",
    "state": "down",
    "http": 404,
    "height": null,
    "reason": "HTTP 404",
-   "ms": 139
+   "ms": 212
   },
   "ta10-tva-cat": {
    "id": "ta10-tva-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:17Z",
+   "checked_at": "2026-10-30T06:06:11Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -954,12 +924,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "ta10-tva-cat.jpg",
-   "ms": 1289
+   "ms": 3295
   },
   "ta10-restream-45": {
    "id": "ta10-restream-45",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:18Z",
+   "checked_at": "2026-10-30T06:06:13Z",
    "state": "ok",
    "http": 200,
    "height": 1080,
@@ -978,12 +948,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "ta10-restream-45.jpg",
-   "ms": 3561
+   "ms": 4469
   },
   "ta10-restream-168": {
    "id": "ta10-restream-168",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:19Z",
+   "checked_at": "2026-10-30T06:06:14Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1002,22 +972,22 @@
    ],
    "codec_state": "ok",
    "thumbnail": "ta10-restream-168.jpg",
-   "ms": 5120
+   "ms": 3887
   },
   "ta10-restream-51": {
    "id": "ta10-restream-51",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:19Z",
+   "checked_at": "2026-10-30T06:06:15Z",
    "state": "down",
    "http": null,
    "height": null,
-   "reason": "curl: (7) Failed to connect to 51.81.93.29 port 8084 after 21 ms: Could not conn",
-   "ms": 28
+   "reason": "curl: (7) Failed to connect to 51.81.93.29 port 8084 after 65 ms: Could not conn",
+   "ms": 73
   },
   "ta10-iptvorg-cat": {
    "id": "ta10-iptvorg-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:19Z",
+   "checked_at": "2026-10-30T06:06:15Z",
    "state": "ok",
    "http": 200,
    "height": 1080,
@@ -1036,12 +1006,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "ta10-iptvorg-cat.jpg",
-   "ms": 3655
+   "ms": 4641
   },
   "ts11-wind": {
    "id": "ts11-wind",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:21Z",
+   "checked_at": "2026-10-30T06:06:18Z",
    "state": "ok",
    "http": 200,
    "height": 1080,
@@ -1080,46 +1050,32 @@
    ],
    "codec_state": "ok",
    "thumbnail": "ts11-wind.jpg",
-   "ms": 7871
+   "ms": 10086
   },
   "ts11-dc-page": {
    "id": "ts11-dc-page",
    "kind": "page_regex",
-   "checked_at": "2026-10-30T00:01:23Z",
-   "state": "ok",
-   "http": 200,
-   "height": null,
-   "reason": "ok",
-   "codecs": [
-    {
-     "codec_name": "h264",
-     "codec_type": "video",
-     "width": 848,
-     "height": 480
-    },
-    {
-     "codec_name": "aac",
-     "codec_type": "audio"
-    }
-   ],
-   "codec_state": "ok",
-   "thumbnail": "ts11-dc-page.jpg",
-   "ms": 2776
-  },
-  "ts11-dm": {
-   "id": "ts11-dm",
-   "kind": "dailymotion",
-   "checked_at": "2026-10-30T00:01:24Z",
+   "checked_at": "2026-10-30T06:06:18Z",
    "state": "down",
    "http": 403,
    "height": null,
    "reason": "HTTP 403",
-   "ms": 386
+   "ms": 1005
+  },
+  "ts11-dm": {
+   "id": "ts11-dm",
+   "kind": "dailymotion",
+   "checked_at": "2026-10-30T06:06:19Z",
+   "state": "down",
+   "http": 403,
+   "height": null,
+   "reason": "HTTP 403",
+   "ms": 457
   },
   "ts11-tva": {
    "id": "ts11-tva",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:24Z",
+   "checked_at": "2026-10-30T06:06:19Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1138,12 +1094,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "ts11-tva.jpg",
-   "ms": 1585
+   "ms": 3569
   },
   "ts11-tva-cat": {
    "id": "ts11-tva-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:24Z",
+   "checked_at": "2026-10-30T06:06:19Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1162,12 +1118,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "ts11-tva-cat.jpg",
-   "ms": 1683
+   "ms": 3578
   },
   "ts11-iptvorg-cat": {
    "id": "ts11-iptvorg-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:24Z",
+   "checked_at": "2026-10-30T06:06:21Z",
    "state": "ok",
    "http": 200,
    "height": 1080,
@@ -1206,32 +1162,32 @@
    ],
    "codec_state": "ok",
    "thumbnail": "ts11-iptvorg-cat.jpg",
-   "ms": 7743
+   "ms": 9198
   },
   "ts11-youtube": {
    "id": "ts11-youtube",
    "kind": "youtube_live",
-   "checked_at": "2026-10-30T00:01:25Z",
+   "checked_at": "2026-10-30T06:06:23Z",
    "state": "not_live",
    "http": null,
    "height": null,
    "reason": "nothing live right now",
-   "ms": 947
+   "ms": 1054
   },
   "ts11-youtube-sin": {
    "id": "ts11-youtube-sin",
    "kind": "youtube_live",
-   "checked_at": "2026-10-30T00:01:25Z",
+   "checked_at": "2026-10-30T06:06:23Z",
    "state": "not_live",
    "http": null,
    "height": null,
    "reason": "nothing live right now",
-   "ms": 930
+   "ms": 954
   },
   "tc13-official-live2": {
    "id": "tc13-official-live2",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:26Z",
+   "checked_at": "2026-10-30T06:06:24Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1250,12 +1206,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "tc13-official-live2.jpg",
-   "ms": 2070
+   "ms": 3694
   },
   "tc13-official-live4": {
    "id": "tc13-official-live4",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:26Z",
+   "checked_at": "2026-10-30T06:06:24Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1274,12 +1230,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "tc13-official-live4.jpg",
-   "ms": 7349
+   "ms": 3456
   },
   "tc13-tva-memfs": {
    "id": "tc13-tva-memfs",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:26Z",
+   "checked_at": "2026-10-30T06:06:24Z",
    "state": "ok",
    "http": 200,
    "height": 1080,
@@ -1298,32 +1254,32 @@
    ],
    "codec_state": "ok",
    "thumbnail": "tc13-tva-memfs.jpg",
-   "ms": 1951
+   "ms": 4747
   },
   "tc13-tva": {
    "id": "tc13-tva",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:26Z",
+   "checked_at": "2026-10-30T06:06:25Z",
    "state": "down",
    "http": 404,
    "height": null,
    "reason": "HTTP 404",
-   "ms": 86
+   "ms": 240
   },
   "tc13-wind-ams": {
    "id": "tc13-wind-ams",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:26Z",
+   "checked_at": "2026-10-30T06:06:25Z",
    "state": "down",
    "http": 404,
    "height": null,
    "reason": "HTTP 404",
-   "ms": 190
+   "ms": 239
   },
   "tc13-tva-cat": {
    "id": "tc13-tva-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:27Z",
+   "checked_at": "2026-10-30T06:06:25Z",
    "state": "ok",
    "http": 200,
    "height": 1080,
@@ -1342,12 +1298,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "tc13-tva-cat.jpg",
-   "ms": 2030
+   "ms": 4712
   },
   "tc13-iptvorg-cat": {
    "id": "tc13-iptvorg-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:28Z",
+   "checked_at": "2026-10-30T06:06:27Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1366,64 +1322,90 @@
    ],
    "codec_state": "ok",
    "thumbnail": "tc13-iptvorg-cat.jpg",
-   "ms": 2075
+   "ms": 3494
   },
   "tc13-restream-51": {
    "id": "tc13-restream-51",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:28Z",
+   "checked_at": "2026-10-30T06:06:27Z",
    "state": "down",
    "http": null,
    "height": null,
-   "reason": "curl: (7) Failed to connect to 51.81.93.29 port 8084 after 20 ms: Could not conn",
-   "ms": 27
+   "reason": "curl: (7) Failed to connect to 51.81.93.29 port 8084 after 64 ms: Could not conn",
+   "ms": 71
   },
   "tc13-youtube": {
    "id": "tc13-youtube",
    "kind": "youtube_live",
-   "checked_at": "2026-10-30T00:01:28Z",
+   "checked_at": "2026-10-30T06:06:27Z",
    "state": "not_live",
    "http": null,
    "height": null,
    "reason": "nothing live right now",
-   "ms": 2073
+   "ms": 2104
   },
   "d15-official-live4": {
    "id": "d15-official-live4",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:29Z",
+   "checked_at": "2026-10-30T06:06:28Z",
    "state": "ok",
    "http": 200,
    "height": null,
    "reason": "ok",
-   "codecs": [],
-   "codec_state": "unverified",
-   "ms": 5764
+   "codecs": [
+    {
+     "codec_name": "h264",
+     "codec_type": "video",
+     "width": 1920,
+     "height": 1080
+    },
+    {
+     "codec_name": "aac",
+     "codec_type": "audio"
+    }
+   ],
+   "codec_state": "ok",
+   "thumbnail": "d15-official-live4.jpg",
+   "ms": 3489
   },
   "d15-official-live2": {
    "id": "d15-official-live2",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:29Z",
-   "state": "down",
-   "http": null,
+   "checked_at": "2026-10-30T06:06:29Z",
+   "state": "ok",
+   "http": 200,
    "height": null,
-   "reason": "variant: curl: (28) Operation timed out after 5004 milliseconds with 0 bytes received",
-   "ms": 5114
+   "reason": "ok",
+   "codecs": [
+    {
+     "codec_name": "h264",
+     "codec_type": "video",
+     "width": 1920,
+     "height": 1080
+    },
+    {
+     "codec_name": "aac",
+     "codec_type": "audio"
+    }
+   ],
+   "codec_state": "ok",
+   "thumbnail": "d15-official-live2.jpg",
+   "ms": 3573
   },
   "d15-tva": {
    "id": "d15-tva",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:30Z",
+   "checked_at": "2026-10-30T06:06:30Z",
    "state": "down",
    "http": 404,
    "height": null,
    "reason": "HTTP 404",
-   "ms": 84
+   "ms": 234
   },
   "d15-tva-memfs": {
    "id": "d15-tva-memfs",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:30Z",
+   "checked_at": "2026-10-30T06:06:30Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1442,12 +1424,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "d15-tva-memfs.jpg",
-   "ms": 1899
+   "ms": 4680
   },
   "d15-tva-cat": {
    "id": "d15-tva-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:30Z",
+   "checked_at": "2026-10-30T06:06:30Z",
    "state": "ok",
    "http": 200,
    "height": 1080,
@@ -1466,12 +1448,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "d15-tva-cat.jpg",
-   "ms": 1878
+   "ms": 4869
   },
   "d15-iptvorg-cat": {
    "id": "d15-iptvorg-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:32Z",
+   "checked_at": "2026-10-30T06:06:31Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1490,12 +1472,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "d15-iptvorg-cat.jpg",
-   "ms": 7213
+   "ms": 3597
   },
   "digital15-auto-6fd0302e7a32": {
    "id": "digital15-auto-6fd0302e7a32",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:32Z",
+   "checked_at": "2026-10-30T06:06:31Z",
    "state": "ok",
    "http": 200,
    "height": 1080,
@@ -1514,22 +1496,22 @@
    ],
    "codec_state": "ok",
    "thumbnail": "digital15-auto-6fd0302e7a32.jpg",
-   "ms": 1936
+   "ms": 4782
   },
   "tu29-dm": {
    "id": "tu29-dm",
    "kind": "dailymotion",
-   "checked_at": "2026-10-30T00:01:32Z",
+   "checked_at": "2026-10-30T06:06:31Z",
    "state": "down",
    "http": 403,
    "height": null,
    "reason": "HTTP 403",
-   "ms": 385
+   "ms": 484
   },
   "tu29-tva": {
    "id": "tu29-tva",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:32Z",
+   "checked_at": "2026-10-30T06:06:32Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1548,12 +1530,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "tu29-tva.jpg",
-   "ms": 1342
+   "ms": 3285
   },
   "tu29-tva-cat": {
    "id": "tu29-tva-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:33Z",
+   "checked_at": "2026-10-30T06:06:32Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1572,12 +1554,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "tu29-tva-cat.jpg",
-   "ms": 1356
+   "ms": 3292
   },
   "vtv-lsg": {
    "id": "vtv-lsg",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:34Z",
+   "checked_at": "2026-10-30T06:06:34Z",
    "state": "ok",
    "http": 200,
    "height": 720,
@@ -1596,12 +1578,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "vtv-lsg.jpg",
-   "ms": 1935
+   "ms": 4153
   },
   "vtv-lsg-mono": {
    "id": "vtv-lsg-mono",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:34Z",
+   "checked_at": "2026-10-30T06:06:34Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1620,12 +1602,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "vtv-lsg-mono.jpg",
-   "ms": 1419
+   "ms": 2910
   },
   "vtv-lsg-3507": {
    "id": "vtv-lsg-3507",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:34Z",
+   "checked_at": "2026-10-30T06:06:35Z",
    "state": "ok",
    "http": 200,
    "height": 720,
@@ -1644,22 +1626,22 @@
    ],
    "codec_state": "ok",
    "thumbnail": "vtv-lsg-3507.jpg",
-   "ms": 2436
+   "ms": 4526
   },
   "vtv-tva": {
    "id": "vtv-tva",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:34Z",
+   "checked_at": "2026-10-30T06:06:35Z",
    "state": "down",
    "http": 404,
    "height": null,
    "reason": "HTTP 404",
-   "ms": 98
+   "ms": 233
   },
   "vtv-tva-cat": {
    "id": "vtv-tva-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:34Z",
+   "checked_at": "2026-10-30T06:06:35Z",
    "state": "ok",
    "http": 200,
    "height": 720,
@@ -1678,12 +1660,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "vtv-tva-cat.jpg",
-   "ms": 2014
+   "ms": 4874
   },
   "vtv-iptvorg-cat": {
    "id": "vtv-iptvorg-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:34Z",
+   "checked_at": "2026-10-30T06:06:35Z",
    "state": "ok",
    "http": 200,
    "height": 720,
@@ -1702,32 +1684,32 @@
    ],
    "codec_state": "ok",
    "thumbnail": "vtv-iptvorg-cat.jpg",
-   "ms": 2191
+   "ms": 4415
   },
   "vtv-youtube": {
    "id": "vtv-youtube",
    "kind": "youtube_live",
-   "checked_at": "2026-10-30T00:01:35Z",
+   "checked_at": "2026-10-30T06:06:36Z",
    "state": "not_live",
    "http": null,
    "height": null,
    "reason": "nothing live right now",
-   "ms": 2532
+   "ms": 2220
   },
   "vtv32-auto-be4cae101fca": {
    "id": "vtv32-auto-be4cae101fca",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:36Z",
+   "checked_at": "2026-10-30T06:06:37Z",
    "state": "down",
    "http": 404,
    "height": null,
    "reason": "HTTP 404",
-   "ms": 116
+   "ms": 113
   },
   "vtv32-auto-43580189fa4f": {
    "id": "vtv32-auto-43580189fa4f",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:36Z",
+   "checked_at": "2026-10-30T06:06:37Z",
    "state": "ok",
    "http": 200,
    "height": 720,
@@ -1746,12 +1728,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "vtv32-auto-43580189fa4f.jpg",
-   "ms": 1995
+   "ms": 4891
   },
   "cdnd-tva": {
    "id": "cdnd-tva",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:36Z",
+   "checked_at": "2026-10-30T06:06:38Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1770,12 +1752,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "cdnd-tva.jpg",
-   "ms": 1362
+   "ms": 3094
   },
   "cdnd-dm": {
    "id": "cdnd-dm",
    "kind": "dailymotion",
-   "checked_at": "2026-10-30T00:01:37Z",
+   "checked_at": "2026-10-30T06:06:38Z",
    "state": "ok",
    "http": 200,
    "height": 288,
@@ -1804,12 +1786,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "cdnd-dm.jpg",
-   "ms": 9342
+   "ms": 10642
   },
   "cdnd-tva-cat": {
    "id": "cdnd-tva-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:37Z",
+   "checked_at": "2026-10-30T06:06:39Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1828,12 +1810,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "cdnd-tva-cat.jpg",
-   "ms": 1297
+   "ms": 3159
   },
   "cdnd-iptvorg-cat": {
    "id": "cdnd-iptvorg-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:38Z",
+   "checked_at": "2026-10-30T06:06:40Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1852,12 +1834,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "cdnd-iptvorg-cat.jpg",
-   "ms": 1288
+   "ms": 3106
   },
   "cdn37-tva": {
    "id": "cdn37-tva",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:38Z",
+   "checked_at": "2026-10-30T06:06:40Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1876,12 +1858,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "cdn37-tva.jpg",
-   "ms": 1395
+   "ms": 3745
   },
   "cdn37-dm": {
    "id": "cdn37-dm",
    "kind": "dailymotion",
-   "checked_at": "2026-10-30T00:01:38Z",
+   "checked_at": "2026-10-30T06:06:41Z",
    "state": "ok",
    "http": 200,
    "height": 288,
@@ -1910,12 +1892,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "cdn37-dm.jpg",
-   "ms": 9164
+   "ms": 15205
   },
   "cdn37-tva-cat": {
    "id": "cdn37-tva-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:38Z",
+   "checked_at": "2026-10-30T06:06:42Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1934,12 +1916,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "cdn37-tva-cat.jpg",
-   "ms": 1582
+   "ms": 3794
   },
   "cdn37-restream-190": {
    "id": "cdn37-restream-190",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:39Z",
+   "checked_at": "2026-10-30T06:06:42Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1958,12 +1940,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "cdn37-restream-190.jpg",
-   "ms": 1775
+   "ms": 2345
   },
   "cdn37-restream-187": {
    "id": "cdn37-restream-187",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:39Z",
+   "checked_at": "2026-10-30T06:06:43Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -1982,12 +1964,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "cdn37-restream-187.jpg",
-   "ms": 2145
+   "ms": 1878
   },
   "cdn37-iptvorg-cat": {
    "id": "cdn37-iptvorg-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:39Z",
+   "checked_at": "2026-10-30T06:06:44Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -2006,22 +1988,22 @@
    ],
    "codec_state": "ok",
    "thumbnail": "cdn37-iptvorg-cat.jpg",
-   "ms": 1740
+   "ms": 2520
   },
   "cdn37-youtube": {
    "id": "cdn37-youtube",
    "kind": "youtube_live",
-   "checked_at": "2026-10-30T00:01:40Z",
+   "checked_at": "2026-10-30T06:06:45Z",
    "state": "not_live",
    "http": null,
    "height": null,
    "reason": "nothing live right now",
-   "ms": 702
+   "ms": 791
   },
   "co39-tva": {
    "id": "co39-tva",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:40Z",
+   "checked_at": "2026-10-30T06:06:45Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -2040,12 +2022,12 @@
    ],
    "codec_state": "ok",
    "thumbnail": "co39-tva.jpg",
-   "ms": 1852
+   "ms": 3595
   },
   "co39-tva-cat": {
    "id": "co39-tva-cat",
    "kind": "catalog",
-   "checked_at": "2026-10-30T00:01:41Z",
+   "checked_at": "2026-10-30T06:06:46Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -2064,32 +2046,32 @@
    ],
    "codec_state": "ok",
    "thumbnail": "co39-tva-cat.jpg",
-   "ms": 1906
+   "ms": 3608
   },
   "lic-yt": {
    "id": "lic-yt",
    "kind": "youtube_live",
-   "checked_at": "2026-10-30T00:01:41Z",
-   "state": "untestable",
+   "checked_at": "2026-10-30T06:06:46Z",
+   "state": "not_live",
    "http": null,
    "height": null,
-   "reason": "YouTube bot check on this network (datacenter IP)",
-   "ms": 2830
+   "reason": "nothing live right now",
+   "ms": 2015
   },
   "esc-yt": {
    "id": "esc-yt",
    "kind": "youtube_live",
-   "checked_at": "2026-10-30T00:01:41Z",
+   "checked_at": "2026-10-30T06:06:46Z",
    "state": "not_live",
    "http": null,
    "height": null,
    "reason": "nothing live right now",
-   "ms": 1024
+   "ms": 749
   },
   "esc-radio-kebuena": {
    "id": "esc-radio-kebuena",
    "kind": "audio",
-   "checked_at": "2026-10-30T00:01:42Z",
+   "checked_at": "2026-10-30T06:06:47Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -2101,22 +2083,22 @@
     }
    ],
    "codec_state": "ok",
-   "ms": 792
+   "ms": 872
   },
   "agu-yt": {
    "id": "agu-yt",
    "kind": "youtube_live",
-   "checked_at": "2026-10-30T00:01:42Z",
+   "checked_at": "2026-10-30T06:06:48Z",
    "state": "not_live",
    "http": null,
    "height": null,
    "reason": "nothing live right now",
-   "ms": 968
+   "ms": 831
   },
   "agu-radio-cdn": {
    "id": "agu-radio-cdn",
    "kind": "audio",
-   "checked_at": "2026-10-30T00:01:43Z",
+   "checked_at": "2026-10-30T06:06:48Z",
    "state": "ok",
    "http": 200,
    "height": null,
@@ -2128,51 +2110,37 @@
     }
    ],
    "codec_state": "ok",
-   "ms": 1898
+   "ms": 1970
   },
   "est-yt": {
    "id": "est-yt",
    "kind": "youtube_live",
-   "checked_at": "2026-10-30T00:01:43Z",
-   "state": "untestable",
-   "http": null,
-   "height": null,
-   "reason": "YouTube bot check on this network (datacenter IP)",
-   "ms": 2448
-  },
-  "tor-yt": {
-   "id": "tor-yt",
-   "kind": "youtube_live",
-   "checked_at": "2026-10-30T00:01:43Z",
+   "checked_at": "2026-10-30T06:06:48Z",
    "state": "not_live",
    "http": null,
    "height": null,
    "reason": "nothing live right now",
-   "ms": 760
+   "ms": 2005
+  },
+  "tor-yt": {
+   "id": "tor-yt",
+   "kind": "youtube_live",
+   "checked_at": "2026-10-30T06:06:49Z",
+   "state": "not_live",
+   "http": null,
+   "height": null,
+   "reason": "nothing live right now",
+   "ms": 813
   },
   "gig-tva": {
    "id": "gig-tva",
    "kind": "hls",
-   "checked_at": "2026-10-30T00:01:44Z",
-   "state": "ok",
-   "http": 200,
+   "checked_at": "2026-10-30T06:06:49Z",
+   "state": "down",
+   "http": 404,
    "height": null,
-   "reason": "ok",
-   "codecs": [
-    {
-     "codec_name": "h264",
-     "codec_type": "video",
-     "width": 1920,
-     "height": 1080
-    },
-    {
-     "codec_name": "aac",
-     "codec_type": "audio"
-    }
-   ],
-   "codec_state": "ok",
-   "thumbnail": "gig-tva.jpg",
-   "ms": 1704
+   "reason": "HTTP 404",
+   "ms": 255
   }
  }
 }
