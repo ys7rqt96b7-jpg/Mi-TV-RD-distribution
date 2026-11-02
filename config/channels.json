@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-10-27T15:02:18.942400Z",
+  "updated": "2026-11-02T18:58:49.141505Z",
   "notes": "Seed config for Canales RD. 'verified' records a probe from a US datacenter on 2026-10-23; 'blocked'/'untested' sources may work from a Dominican or residential connection. Re-run tools/check_sources.py from the parents' network before release.",
   "defaults": {
     "user_agent": "CanalesRD/1.0 (Linux; Android; Fire TV) ExoPlayerLib/1.9.4",
@@ -1574,6 +1574,16 @@
             "number": 39
           },
           "origin": "manual"
+        },
+        {
+          "id": "coral39-auto-b81122aa8d70",
+          "kind": "hls",
+          "url": "https://us.tvabierta.net/memfs/9aa305d3-a20e-4634-9edf-d2e1d14bb3a4.m3u8",
+          "headers": {},
+          "origin": "auto",
+          "priority": 70,
+          "tier": "partial",
+          "notes": "Discovered from tvabierta"
         }
       ]
     },
