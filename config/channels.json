@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-03T16:44:02.513388Z",
+  "updated": "2026-11-04T02:46:53.488345Z",
   "notes": "Seed config for Canales RD. 'verified' records a probe from a US datacenter on 2026-10-23; 'blocked'/'untested' sources may work from a Dominican or residential connection. Re-run tools/check_sources.py from the parents' network before release.",
   "defaults": {
     "user_agent": "CanalesRD/1.0 (Linux; Android; Fire TV) ExoPlayerLib/1.9.4",
@@ -1192,6 +1192,81 @@
           "priority": 70,
           "tier": "partial",
           "notes": "Discovered from tvabierta"
+        }
+      ]
+    },
+    {
+      "id": "cielotv20",
+      "number": 20,
+      "name": "Cielo TV",
+      "group": "nacional",
+      "logo": "https://tvabierta.net/cielotv.png",
+      "epg": {
+        "iptvorg": "CieloTV.do"
+      },
+      "notes": "Dominican Christian Cielo TV, cielotv.do. App dial 20 follows the tvabierta listing, not a claimed universal cable position. Provider stream identified in iptv-org; official website returned HTTP 403 during inspection.",
+      "sources": [
+        {
+          "id": "cielo-provider",
+          "kind": "hls",
+          "tier": "partial",
+          "priority": 10,
+          "url": "https://streaming.servervideo.net:1936/cielotv/cielotv/playlist.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-28",
+            "from": "mx home Linux (Dominican Republic)",
+            "result": "ok",
+            "note": "Provider HLS listed under CieloTV.do by iptv-org: H264/AAC 1920x1080, reachable from home."
+          }
+        },
+        {
+          "id": "cielo-tva",
+          "kind": "hls",
+          "tier": "aggregator",
+          "priority": 30,
+          "url": "https://hls.tvabierta.net/hls/020.m3u8",
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-28",
+            "from": "mx home Linux (Dominican Republic)",
+            "result": "ok",
+            "note": "tvabierta catalog identifies Cielo TV at 20; H264/AAC 1920x1080. Initial upstream SPS buffering-period warnings observed."
+          }
+        },
+        {
+          "id": "cielo-tva-cat",
+          "kind": "catalog",
+          "tier": "aggregator",
+          "priority": 40,
+          "catalog": "tvabierta",
+          "match": {
+            "number": 20
+          },
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-28",
+            "from": "mx home Linux (Dominican Republic)",
+            "result": "ok",
+            "note": "Live catalog entry cielotv-9a4b4898 maps to the same tvabierta Cielo stream; alias, not an independent feed."
+          }
+        },
+        {
+          "id": "cielo-iptvorg-cat",
+          "kind": "catalog",
+          "tier": "partial",
+          "priority": 50,
+          "catalog": "iptvorg_do",
+          "match": {
+            "tvg_id": "CieloTV.do"
+          },
+          "origin": "manual",
+          "verified": {
+            "date": "2026-10-28",
+            "from": "mx home Linux (Dominican Republic)",
+            "result": "ok",
+            "note": "Current iptv-org country catalog points to the provider HLS; alias, not an independent feed."
+          }
         }
       ]
     },
