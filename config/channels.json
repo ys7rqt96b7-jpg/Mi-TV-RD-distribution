@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-04T02:46:53.488345Z",
+  "updated": "2026-11-07T15:16:30.781927Z",
   "notes": "Seed config for Canales RD. 'verified' records a probe from a US datacenter on 2026-10-23; 'blocked'/'untested' sources may work from a Dominican or residential connection. Re-run tools/check_sources.py from the parents' network before release.",
   "defaults": {
     "user_agent": "CanalesRD/1.0 (Linux; Android; Fire TV) ExoPlayerLib/1.9.4",
@@ -1267,6 +1267,16 @@
             "result": "ok",
             "note": "Current iptv-org country catalog points to the provider HLS; alias, not an independent feed."
           }
+        },
+        {
+          "id": "cielotv20-auto-5a20abcb4745",
+          "kind": "hls",
+          "url": "https://us.tvabierta.net/memfs/dd8e18b9-deca-4480-8c94-31e63296f593.m3u8",
+          "headers": {},
+          "origin": "auto",
+          "priority": 70,
+          "tier": "partial",
+          "notes": "Discovered from tvabierta"
         }
       ]
     },
