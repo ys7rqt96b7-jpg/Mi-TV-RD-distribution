@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-07T15:16:30.781927Z",
+  "updated": "2026-11-08T15:40:56.168925Z",
   "notes": "Seed config for Canales RD. 'verified' records a probe from a US datacenter on 2026-10-23; 'blocked'/'untested' sources may work from a Dominican or residential connection. Re-run tools/check_sources.py from the parents' network before release.",
   "defaults": {
     "user_agent": "CanalesRD/1.0 (Linux; Android; Fire TV) ExoPlayerLib/1.9.4",
@@ -574,6 +574,16 @@
           "id": "telemedios8-auto-92e993365024",
           "kind": "hls",
           "url": "https://hls.tvabierta.net/hls/008.m3u8",
+          "headers": {},
+          "origin": "auto",
+          "priority": 70,
+          "tier": "partial",
+          "notes": "Discovered from tvabierta"
+        },
+        {
+          "id": "telemedios8-auto-d1312d30b5eb",
+          "kind": "hls",
+          "url": "https://us.tvabierta.net/memfs/8c8c6f31-9a29-431e-b3c3-d4675498e53e.m3u8",
           "headers": {},
           "origin": "auto",
           "priority": 70,
