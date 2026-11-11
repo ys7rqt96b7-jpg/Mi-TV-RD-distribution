@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-10T16:41:22.818401Z",
+  "updated": "2026-11-11T16:46:52.123851Z",
   "notes": "Seed config for Canales RD. 'verified' records a probe from a US datacenter on 2026-10-23; 'blocked'/'untested' sources may work from a Dominican or residential connection. Re-run tools/check_sources.py from the parents' network before release.",
   "defaults": {
     "user_agent": "CanalesRD/1.0 (Linux; Android; Fire TV) ExoPlayerLib/1.9.4",
@@ -425,6 +425,16 @@
             "result": "untested",
             "note": "Listed on dominicanchannels.com; raw IP:port could not be tested from the sandbox."
           }
+        },
+        {
+          "id": "telemicro5-auto-c77695365cf7",
+          "kind": "hls",
+          "url": "https://cdn4.wind.do/streams/telemicro/telemicro_1080.m3u8",
+          "headers": {},
+          "origin": "auto",
+          "priority": 70,
+          "tier": "partial",
+          "notes": "Discovered from iptvorg"
         }
       ]
     },
